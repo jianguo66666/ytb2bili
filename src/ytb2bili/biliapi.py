@@ -222,13 +222,29 @@ def recent_archives(cookies_file: str | Path, n: int = 10) -> list[dict]:
 
 
 def find_archive_by_title(cookies_file: str | Path, title: str) -> dict | None:
-    """按标题在最近稿件里找匹配项（投稿后确认用）。"""
+    """按标题在最近稿件里找匹配项（投稿后确认用）。
+
+    B 站可能截断超长标题，故除精确相等外，还做前缀容错匹配。
+    """
+    def norm(s: str) -> str:
+        return "".join((s or "").split())
+
+    want = norm(title)
     try:
-        for a in recent_archives(cookies_file, 15):
-            if a.get("title") == title:
-                return a
+        cands = recent_archives(cookies_file, 15)
     except Ytb2biliError:
         return None
+    # 优先精确匹配
+    for a in cands:
+        if norm(a.get("title")) == want:
+            return a
+    # 前缀容错：标题较长时，取前 18 个非空字符比较
+    if len(want) >= 18:
+        head = want[:18]
+        for a in cands:
+            at = norm(a.get("title"))
+            if at and (at.startswith(head) or want.startswith(at[:18])):
+                return a
     return None
 
 
