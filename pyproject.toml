@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ytb2bili"
+version = "0.1.0"
+description = "命令行把 YouTube 视频搬运到哔哩哔哩：下载 + 扫码登录 + 投稿，全程确定性执行，输出结构化 JSON，方便被 AI/脚本调用。"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "czy" }]
+dependencies = [
+    "yt-dlp>=2025.1.1",
+    "qrcode>=7.4",
+    "pillow>=9.0",
+    "imageio-ffmpeg>=0.5",
+]
+
+[project.scripts]
+ytb2bili = "ytb2bili.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+ytb2bili = ["py.typed"]

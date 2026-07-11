@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+*.whl
+*.tar.gz
+
+# venv
+.venv/
+venv/
+env/
+
+# 运行时数据（凭据、下载）绝不入库
+cookies.json
+*.cookies.txt
+youtube_cookies.txt
+login_qr.png
+ytb2bili-downloads/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
