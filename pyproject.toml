@@ -21,7 +21,8 @@ dependencies = [
 ytb2bili = "ytb2bili.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/"
+Homepage = "https://github.com/jianguotech/ytb2bili"
+Repository = "https://github.com/jianguotech/ytb2bili"
 
 [tool.setuptools.packages.find]
 where = ["src"]

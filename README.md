@@ -15,13 +15,13 @@
 
 ```bash
 # 方式一：从 GitHub 直接安装（推荐）
-pip install "git+https://github.com/jianguo66666/ytb2bili.git"
+pip install "git+https://github.com/jianguotech/ytb2bili.git"
 
 # 方式二：下载 wheel 后本地安装
 pip install ytb2bili-0.1.0-py3-none-any.whl
 
 # 方式三：源码开发安装
-git clone https://github.com/jianguo66666/ytb2bili.git && cd ytb2bili
+git clone https://github.com/jianguotech/ytb2bili.git && cd ytb2bili
 pip install -e .
 
 # 安装后，一键补齐其余依赖（biliup 二进制、deno 运行时）
@@ -29,7 +29,7 @@ ytb2bili doctor --install
 ```
 
 > 想要全局命令、和其它 Python 环境隔离，用 [pipx](https://pipx.pypa.io)：
-> `pipx install "git+https://github.com/jianguo66666/ytb2bili.git"`
+> `pipx install "git+https://github.com/jianguotech/ytb2bili.git"`
 
 ## 依赖说明（各依赖怎么装的）
 
